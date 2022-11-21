@@ -9,7 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
-import { HttpClient } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { HttpClient } from "@angular/common/http";
   imports: [
     BrowserModule,
     ROUTES_APP,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
