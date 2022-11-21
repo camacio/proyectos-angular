@@ -7,6 +7,6 @@ import { SearchComponent } from '../../search/search.component';
 })
 export class NavbarComponent{
 
-  constructor( private search: SearchComponent) {}
+  constructor() {}
   
 }

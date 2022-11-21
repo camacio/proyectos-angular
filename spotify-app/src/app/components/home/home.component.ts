@@ -6,18 +6,20 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
+  newReleases: any = [];
+  loading: boolean;
 
-  public newReleases: any = []
+  constructor(private service: SpotifyService) {
+    this.loading = true;
 
-  constructor(private service: SpotifyService ) { 
-    this.newReleases = this.service.getNewReleases()
-                                    .subscribe((response: any) => {
-                                      this.newReleases = response;
-                                      console.log(this.newReleases);
-                                    })
+    this.newReleases = this.service
+      .getNewReleases()
+      .subscribe((response: any) => {
+        this.newReleases = response;
+        this.loading = false;
+        console.log(this.newReleases);
+      });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

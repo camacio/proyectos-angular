@@ -5,18 +5,20 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   selector: 'app-search',
   templateUrl: './search.component.html',
 })
-export class SearchComponent{
+export class SearchComponent {
+  artists: any[] = [];
+  loading: boolean;
 
-  artists: any[] = []; 
-
-  constructor(private service: SpotifyService) { }
-
-  search(text: string){
-    this.service.getArtist(text)
-                .subscribe((response: any) => {
-                  console.log(response);
-                  this.artists = response;
-                })
+  constructor(private service: SpotifyService) {
+    this.loading = true;
   }
 
+
+  search(text: string) {
+    this.service.getArtist(text).subscribe((response: any) => {
+      console.log(response);
+      this.artists = response;
+      this.loading = false;
+    });
+  }
 }
