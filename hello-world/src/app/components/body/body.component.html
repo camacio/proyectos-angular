@@ -1,0 +1,29 @@
+<main>
+    <div class="row mt-5">
+        <div class="col p-3">
+            <h2>*Ng.if</h2>
+            <div *ngIf = "show" class="card bg-primary text-white px-3 my-3">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h4>Name: {{product.name}}</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5>Price: {{product.price}}</h5>
+                    <h5>Amount: {{product.amount}}</h5>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button (click)="show = !show" class="btn btn-outline-primary">Show/Hidden</button>
+            </div>
+        </div>
+        <div class="col p-3">
+            <h2>*Ng.for</h2>
+                <ul class="list-group">
+                    <li *ngFor="let product of products; let i = index" class="list-group-item">
+                        {{i + 1}} {{product}}
+                    </li>
+                </ul>
+        </div>
+    </div>
+</main>
