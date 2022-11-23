@@ -1,0 +1,21 @@
+<div class="container">
+    <h1 class="m-5">Marvel and Dc Heroes</h1>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-3">
+        <div class="col" *ngFor="let heroe of heroes; let i = index">
+            <div class="card shadow" style="width: 20rem;">
+                <img [src]="heroe.img">
+                <div class="card-body">
+                    <h5 class="card-title">{{heroe.nombre}}</h5>
+                    <p class="card-text">{{heroe.bio}}</p>
+                </div>
+                <div class="card-footer">
+                    <small><p>{{heroe.aparicion}}</p></small>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary" [routerLink]="['/heroe']">Show more...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
