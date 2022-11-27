@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ITask } from 'src/app/models/interfaces/Task.interface';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ITask } from 'src/app/models/interfaces/task.interface';
 
 @Component({
   selector: 'app-task',
@@ -9,6 +9,7 @@ import { ITask } from 'src/app/models/interfaces/Task.interface';
 export class TaskComponent implements OnInit {
 
   @Input() task: ITask | undefined;
+  @Output() delete : EventEmitter<ITask> = new EventEmitter<ITask>();
 
   constructor() { }
 
@@ -16,7 +17,7 @@ export class TaskComponent implements OnInit {
   }
 
   deleteTask(): void{
-    alert("delete");
+    this.delete.emit(this.task);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ITask, Levels } from 'src/app/models/interfaces/Task.interface';
+import { ITask, Levels } from 'src/app/models/interfaces/task.interface';
 
 @Component({
   selector: 'app-task-list',
@@ -18,6 +18,10 @@ export class TaskListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteTask(task: ITask){
+    alert(task);
   }
 
 }
